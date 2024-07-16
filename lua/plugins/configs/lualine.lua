@@ -79,7 +79,7 @@ local config = {
     component_separators = "",
     section_separators = "",
     theme = {
-      normal = { c = { fg = active_colors.text, bg = active_colors.base } },
+      normal = { c = { fg = active_colors.text, bg = active_colors.highlight_low } },
       inactive = { c = { fg = active_colors.text, bg = active_colors.base } },
     },
   },
@@ -115,18 +115,18 @@ ins_left {
   "mode",
   color = function()
     local mode_color = {
-      n = active_colors.love,
-      i = active_colors.pine,
-      v = active_colors.iris,
-      [""] = active_colors.iris,
-      V = active_colors.iris,
+      n = active_colors.foam,
+      i = active_colors.iris,
+      v = active_colors.foam,
+      [""] = active_colors.foam,
+      V = active_colors.foam,
       c = active_colors.rose,
       no = active_colors.love,
       s = active_colors.gold,
       S = active_colors.gold,
       [""] = active_colors.gold,
       ic = active_colors.foam,
-      R = active_colors.violet,
+      R = active_colors.gold,
       Rv = active_colors.violet,
       cv = active_colors.love,
       ce = active_colors.love,
@@ -137,14 +137,14 @@ ins_left {
       t = active_colors.love,
     }
     -- return { fg = mode_color[vim.fn.mode()] }
-    return { fg = mode_color[vim.fn.mode()], bg = active_colors.overlay, gui = "bold" }
+    return { fg = mode_color[vim.fn.mode()], bg = active_colors.highlight_high, gui = "bold" }
   end,
 }
 
 ins_left {
   "filename",
   cond = conditions.buffer_not_empty,
-  color = { fg = active_colors.gold, gui = "bold" },
+  color = { fg = active_colors.muted, gui = "bold" },
   icons_enabled = true,
   symbols = {
     modified = " ",
@@ -172,16 +172,16 @@ ins_left {
 ins_left {
   "branch",
   icon = " ",
-  color = { fg = active_colors.violet, gui = "bold" },
+  color = { fg = active_colors.muted, gui = "bold" },
 }
 
 ins_left {
   "diff",
-  symbols = { added = " ", modified = "󰝤 ", removed = " " },
+  symbols = { added = " ", modified = " ", removed = " " },
   diff_color = {
-    added = { fg = active_colors.pine },
-    modified = { fg = active_colors.gold },
-    removed = { fg = active_colors.love },
+    added = { fg = active_colors.iris },
+    modified = { fg = active_colors.iris },
+    removed = { fg = active_colors.iris },
   },
   cond = conditions.hide_in_width,
 }
@@ -220,7 +220,7 @@ ins_right {
     return msg
   end,
   icon = "  LSP ~",
-  color = { fg = active_colors.text, gui = "bold" },
+  color = { fg = active_colors.foam, gui = "bold" },
 }
 
 ins_right {
@@ -229,21 +229,21 @@ ins_right {
     local col = vim.fn.col "."
     return string.format("Ln %d, Col %d", line, col)
   end,
-  color = { fg = active_colors.iris },
+  color = { fg = active_colors.muted },
 }
 
 ins_right {
   function()
     return ""
   end,
-  color = { fg = active_colors.gold, bg = active_colors.overlay, gui = "bold" },
+  color = { fg = active_colors.love, bg = active_colors.highlight_high, gui = "bold" },
 }
 
 ins_right {
   function()
     return vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
   end,
-  color = { fg = active_colors.gold, bg = active_colors.overlay, gui = "bold" },
+  color = { fg = active_colors.love, bg = active_colors.highlight_high, gui = "bold" },
 }
 
 lualine.setup(config)
