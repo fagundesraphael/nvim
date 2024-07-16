@@ -37,6 +37,18 @@ map("v", "<Down>", "v:count || mode(1)[0:1] == 'no' ? 'j' : 'gj'", { expr = true
 map("v", "<", "<gv", { desc = "Indent line" })
 map("v", ">", ">gv", { desc = "Indent line" })
 
+-- tmux
+map("n", "<C-h>", "<cmd> TmuxNavigateLeft<CR>")
+map("n", "<C-l>", "<cmd> TmuxNavigateRight<CR>")
+map("n", "<C-j>", "<cmd> TmuxNavigateDown<CR>")
+map("n", "<C-k>", "<cmd> TmuxNavigateUp<CR>")
+
+-- bufferline, cycle buffers
+map("n", "<Tab>", "<cmd> BufferLineCycleNext <CR>")
+map("n", "<S-Tab>", "<cmd> BufferLineCyclePrev <CR>")
+map("n", "<leader>b", "<cmd> enew <CR>")
+map("n", "<leader>x", "<cmd> bd <CR>")
+
 -- exit insert mode with jk/kj
 map("i", "jk", "<ESC>", { noremap = true, silent = true })
 map("i", "kj", "<ESC>", { noremap = true, silent = true })
@@ -152,43 +164,51 @@ local gopher_map = vim.keymap.set
 gopher_map("n", "<leader>gsj", "<cmd>GoTagAdd json<CR>", { desc = "Add json struct tags" })
 gopher_map("n", "<leader>gsy", "<cmd>GoTagAdd yaml<CR>", { desc = "Add yaml struct tags" })
 
+-- gitsigns
+map("n", "<leader>]c", "<cmd> lua require('gitsigns').next_hunk()<CR>")
+map("n", "<leader>[c", "<cmd> lua require('gitsigns').prev_hunk()<CR>")
+map("n", "<leader>rh", "<cmd> lua require('gitsigns').reset_hunk()<CR>")
+map("n", "<leader>ph", "<cmd> lua require('gitsigns').preview_hunk()<CR>")
+map("n", "<leader>gb", "<cmd> lua require('gitsigns').blame_line()<CR>")
+map("n", "<leader>td", "<cmd> lua require('gitsigns').toggle_deleted()<CR>")
+
 -- harpoon mappings
 
-map("n", "<S-m>", function()
-  harpoon:list():append()
-  vim.notify "󱡅  marked file"
-end, { desc = "Mark file" })
-
--- open quick menu
-
-map("n", "<C-S-H>", function()
-  harpoon:list():select(1)
-end, { desc = "Select 1st" })
-
-map("n", "<C-S-J>", function()
-  harpoon:list():select(2)
-end, { desc = "Select 2nd" })
-
-map("n", "<C-S-K>", function()
-  harpoon:list():select(3)
-end, { desc = "Select 3rd" })
-
-map("n", "<C-S-L>", function()
-  harpoon:list():select(4)
-end, { desc = "Select 4th" })
-
--- Toggle previous & next buffers stored within Harpoon list
-
-map("n", "<C-S-P>", function()
-  harpoon:list():prev()
-end, { desc = "Previous buffer" })
-
-map("n", "<C-S-N>", function()
-  harpoon:list():next()
-end, { desc = "Next buffer" })
-
--- Quick menu mappings
-map("n", "<C-S-M>", function()
-  local list = harpoon:list()
-  harpoon.ui:toggle_quick_menu(list)
-end, { desc = "Toggle quick menu" })
+-- map("n", "<S-m>", function()
+--   harpoon:list():append()
+--   vim.notify "󱡅  marked file"
+-- end, { desc = "Mark file" })
+--
+-- -- open quick menu
+--
+-- map("n", "<C-S-H>", function()
+--   harpoon:list():select(1)
+-- end, { desc = "Select 1st" })
+--
+-- map("n", "<C-S-J>", function()
+--   harpoon:list():select(2)
+-- end, { desc = "Select 2nd" })
+--
+-- map("n", "<C-S-K>", function()
+--   harpoon:list():select(3)
+-- end, { desc = "Select 3rd" })
+--
+-- map("n", "<C-S-L>", function()
+--   harpoon:list():select(4)
+-- end, { desc = "Select 4th" })
+--
+-- -- Toggle previous & next buffers stored within Harpoon list
+--
+-- map("n", "<C-S-P>", function()
+--   harpoon:list():prev()
+-- end, { desc = "Previous buffer" })
+--
+-- map("n", "<C-S-N>", function()
+--   harpoon:list():next()
+-- end, { desc = "Next buffer" })
+--
+-- -- Quick menu mappings
+-- map("n", "<C-S-M>", function()
+--   local list = harpoon:list()
+--   harpoon.ui:toggle_quick_menu(list)
+-- end, { desc = "Toggle quick menu" })
