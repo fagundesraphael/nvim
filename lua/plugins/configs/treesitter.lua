@@ -35,5 +35,8 @@ require("nvim-treesitter.configs").setup {
     enable = true,
     use_languagetree = true,
   },
+  folding = {
+    enable = true,
+  },
   indent = { enable = true },
 }
