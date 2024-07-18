@@ -88,8 +88,8 @@ map(
   "<cmd>Telescope find_files follow=true no_ignore=true hidden=true<CR>",
   { desc = "find all files with Telescope" }
 )
-
 map({ "n" }, "<leader>fds", "<cmd>Telescope lsp_document_symbols<CR>", { desc = "Document symbols" })
+map("n", "<leader>th", "<cmd>Telescope colorscheme<CR>", { desc = "change colorscheme with Telescope" })
 
 -- Comment
 map("n", "<leader>/", "gcc", { desc = "toggle comment", remap = true })

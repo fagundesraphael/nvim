@@ -20,4 +20,4 @@ vim.opt.rtp:prepend(lazypath)
 
 require "plugins"
 
--- vim.cmd.colorscheme "rose-pine-dawn"
+vim.cmd.colorscheme "rose-pine-moon"

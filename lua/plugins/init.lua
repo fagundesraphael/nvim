@@ -6,11 +6,9 @@ local plugins = {
 
   {
     "rose-pine/neovim",
-    init = function()
-      local theme = "rose-pine-moon"
-      vim.cmd("colorscheme " .. theme)
-      vim.g.active_theme = theme
-    end,
+    -- init = function()
+    --   vim.cmd.colorscheme "rose-pine-dawn"
+    -- end,
     name = "rose-pine",
   },
 
@@ -48,8 +46,7 @@ local plugins = {
     "akinsho/bufferline.nvim",
     event = "ColorScheme",
     config = function()
-      local highlights = require "rose-pine.plugins.bufferline"
-      require("bufferline").setup { highlights = highlights }
+      require("bufferline").setup()
     end,
   },
 
@@ -60,7 +57,6 @@ local plugins = {
     dependencies = {
       "nvim-tree/nvim-web-devicons",
     },
-    -- event = "ColorScheme",
     config = function()
       require "plugins.configs.lualine"
     end,
