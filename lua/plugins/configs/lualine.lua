@@ -20,7 +20,7 @@ local config = {
   options = {
     component_separators = "",
     section_separators = "",
-    theme = "auto",
+    theme = "rose-pine-alt",
   },
   sections = {
     lualine_a = {},
@@ -42,11 +42,11 @@ local config = {
 
 -- left component
 local function ins_mode(component)
-  table.insert(config.sections.lualine_b, component)
+  table.insert(config.sections.lualine_a, component)
 end
 
 local function ins_filename(component)
-  table.insert(config.sections.lualine_c, component)
+  table.insert(config.sections.lualine_b, component)
 end
 
 local function ins_left(component)
