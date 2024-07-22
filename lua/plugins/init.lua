@@ -419,20 +419,6 @@ local plugins = {
     end,
   },
 
-  {
-    "gbprod/cutlass.nvim",
-    event = "BufReadPost",
-    opts = {
-      cut_key = "x",
-      override_del = true,
-      exclude = {},
-      registers = {
-        select = "_",
-        delete = "_",
-        change = "_",
-      },
-    },
-  },
   -- {
   --   "microsoft/vscode-js-debug",
   --   build = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out",
