@@ -80,7 +80,6 @@ map(
 )
 map("n", "<leader>cm", "<cmd>Telescope git_commits<CR>", { desc = "browse git commits with Telescope" })
 map("n", "<leader>gt", "<cmd>Telescope git_status<CR>", { desc = "git status with Telescope" })
-map("n", "<leader>pt", "<cmd>Telescope terms<CR>", { desc = "pick hidden terminal with Telescope" })
 map("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "find files with Telescope" })
 map(
   "n",
