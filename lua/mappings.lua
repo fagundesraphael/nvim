@@ -23,6 +23,8 @@ map("v", "<A-j>", ":m '>+1<CR>gv=gv", { desc = "Move line down" })
 map("v", "<A-k>", ":m '<-2<CR>gv=gv", { desc = "Move line up" })
 
 -- General mappings
+map("n", "<C-d>", "<c-d>zz", { desc = "Scroll down and center" })
+map("n", "<C-u>", "<C-u>zz", { desc = "Scroll up and center" })
 -- clear highlights
 map("n", "<Esc>", "<cmd>noh<CR>", { desc = "clear search highlights" })
 -- lines moving normal mode
