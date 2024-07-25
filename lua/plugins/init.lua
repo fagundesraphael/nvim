@@ -267,6 +267,12 @@ local plugins = {
   },
 
   {
+    "christoomey/vim-tmux-navigator",
+  },
+
+  -- DAP
+
+  {
     "mfussenegger/nvim-dap",
     after = "catppuccin",
     config = function(_, opts)
