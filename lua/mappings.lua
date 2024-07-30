@@ -51,17 +51,12 @@ map("n", "<S-Tab>", "<cmd> BufferLineCyclePrev <CR>")
 map("n", "<leader>b", "<cmd> enew <CR>")
 map("n", "<leader>x", "<cmd> bd <CR>")
 
--- exit insert mode with jk/kj
-map("i", "jk", "<ESC>", { noremap = true, silent = true })
-map("i", "kj", "<ESC>", { noremap = true, silent = true })
-
 map("n", "<C-h>", "<C-w>h", { desc = "switch to left window" })
 map("n", "<C-l>", "<C-w>l", { desc = "switch to right window" })
 map("n", "<C-j>", "<C-w>j", { desc = "switch to bottom window" })
 map("n", "<C-k>", "<C-w>k", { desc = "switch to top window" })
 
 map("n", "<C-s>", "<cmd>w<CR>", { desc = "save file" })
-map("n", "<C-c>", "<cmd>%y+<CR>", { desc = "copy whole file" })
 
 map("n", "<leader>n", "<cmd>set nu!<CR>", { desc = "toggle line numbers" })
 map("n", "<leader>rn", "<cmd>set rnu!<CR>", { desc = "toggle relative numbers" })
