@@ -7,6 +7,7 @@ map("n", "<leader>pt", function()
   vim.cmd [[echo expand('%:p')]]
 end, { desc = "Show File Path" })
 
+map("n", "<leader>P", '"_dP', { noremap = true, silent = true })
 -- Insert mode mappings
 map("i", "<C-b>", "<ESC>^i", { desc = "move to beginning of line" })
 map("i", "<C-e>", "<End>", { desc = "move to end of line" })
