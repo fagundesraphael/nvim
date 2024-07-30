@@ -6,7 +6,6 @@ o.laststatus = 3 -- global statusline
 o.showmode = false
 
 o.clipboard = "unnamedplus"
-o.cursorline = true
 
 -- Indenting
 o.expandtab = true
