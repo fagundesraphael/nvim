@@ -152,8 +152,17 @@ local plugins = {
     event = { "BufReadPre", "BufNewFile" },
     config = function()
       require("ibl").setup {
-        indent = { char = "│" },
-        scope = { char = "│", highlight = "Comment" },
+        indent = {
+          -- char = "│",
+          char = "┆",
+        },
+        scope = {
+          -- char = "▏",
+          char = "│",
+          highlight = "Comment",
+          show_start = false,
+          show_end = false,
+        },
       }
     end,
   },
