@@ -116,7 +116,7 @@ ins_left {
 ins_right {
   "diagnostics",
   sources = { "nvim_diagnostic" },
-  symbols = { error = " ", warn = " ", info = " ", hint = " " },
+  symbols = { error = " ", warn = " ", info = " ", hint = "󰌶 " },
 }
 
 ins_right {
