@@ -422,6 +422,15 @@ local plugins = {
     end,
   },
 
+  {
+    "m4xshen/hardtime.nvim",
+    dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
+    opts = {},
+    init = function()
+      require("hardtime").setup()
+    end,
+  },
+
   -- {
   --   "microsoft/vscode-js-debug",
   --   build = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out",
