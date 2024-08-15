@@ -21,7 +21,7 @@ o.mouse = "a"
 
 -- Numbers
 o.number = true
-
+o.relativenumber = true
 o.signcolumn = "yes"
 o.splitbelow = true
 o.splitright = true
