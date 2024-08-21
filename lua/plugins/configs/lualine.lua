@@ -147,6 +147,10 @@ ins_right {
   end,
 }
 
+ins_right {
+  "progress",
+}
+
 ins_directory {
   function()
     return ""
