@@ -148,7 +148,26 @@ ins_right {
 }
 
 ins_right {
-  "progress",
+  function()
+    local current_line = vim.fn.line "."
+    local total_lines = vim.fn.line "$"
+    local progress_percentage = (current_line / total_lines) * 100
+    local progress_icons = {
+      " ",
+      "▂",
+      "▃",
+      "▄",
+      "▅",
+      "▆",
+      "▇",
+      "█",
+    }
+    local icon_index = math.ceil((#progress_icons - 1) * (progress_percentage / 100))
+    icon_index = math.max(1, icon_index)
+    local icon = progress_icons[icon_index]
+    return string.format("%s %.1d%%%%", icon, progress_percentage)
+  end,
+  color = { gui = "bold" },
 }
 
 ins_directory {
