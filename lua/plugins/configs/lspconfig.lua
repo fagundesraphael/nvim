@@ -93,7 +93,7 @@ M.defaults = function()
     vim.lsp.buf.execute_command(params)
   end
 
-  lspconfig.tsserver.setup {
+  lspconfig.ts_ls.setup {
     on_attach = M.on_attach,
     capabilities = M.capabilities,
     on_init = M.on_init,
