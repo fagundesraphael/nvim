@@ -65,28 +65,25 @@ map("n", "<leader>rn", "<cmd>set rnu!<CR>", { desc = "toggle relative numbers" }
 map("n", "<C-n>", "<cmd>NvimTreeToggle<CR>", { desc = "toggle nvimtree window" })
 map("n", "<leader>e", "<cmd>NvimTreeFocus<CR>", { desc = "focus nvimtree window" })
 
-map("n", "<leader>fw", "<cmd>Telescope live_grep<CR>", { desc = "search live with Telescope" })
-map("n", "<leader>fb", "<cmd>Telescope buffers<CR>", { desc = "find buffers with Telescope" })
-map("n", "<leader>fh", "<cmd>Telescope help_tags<CR>", { desc = "search help tags with Telescope" })
-map("n", "<leader>ma", "<cmd>Telescope marks<CR>", { desc = "find marks with Telescope" })
-map("n", "<leader>fo", "<cmd>Telescope oldfiles<CR>", { desc = "find old files with Telescope" })
-map(
-  "n",
-  "<leader>fz",
-  "<cmd>Telescope current_buffer_fuzzy_find<CR>",
-  { desc = "find in current buffer with Telescope" }
-)
-map("n", "<leader>cm", "<cmd>Telescope git_commits<CR>", { desc = "browse git commits with Telescope" })
-map("n", "<leader>gt", "<cmd>Telescope git_status<CR>", { desc = "git status with Telescope" })
-map("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "find files with Telescope" })
+-- fzf-lua
+map("n", "<leader>fw", "<cmd>FzfLua live_grep<CR>", { desc = "search live with fzf-lua" })
+map("n", "<leader>fb", "<cmd>FzfLua buffers<CR>", { desc = "find buffers with fzf-lua" })
+map("n", "<leader>fh", "<cmd>FzfLua help_tags<CR>", { desc = "search help tags with fzf-lua" })
+map("n", "<leader>ma", "<cmd>FzfLua marks<CR>", { desc = "find marks with fzf-lua" })
+map("n", "<leader>fo", "<cmd>FzfLua oldfiles<CR>", { desc = "find old files with fzf-lua" })
+map("n", "<leader>fz", "<cmd>FzfLua lgrep_curbuf<CR>", { desc = "find in current buffer with fzf-lua" })
+map("n", "<leader>cm", "<cmd>FzfLua git_commits<CR>", { desc = "browse git commits with fzf-lua" })
+map("n", "<leader>gt", "<cmd>FzfLua git_status<CR>", { desc = "git status with fzf-lua" })
+map("n", "<leader>ff", "<cmd>FzfLua files<CR>", { desc = "find files with fzf-lua" })
+map("n", "<leader>fc", "<cmd>FzfLua command_history<CR>", { desc = "find in current buffer with fzf-lua" })
 map(
   "n",
   "<leader>fa",
-  "<cmd>Telescope find_files follow=true no_ignore=true hidden=true<CR>",
-  { desc = "find all files with Telescope" }
+  "<cmd>FzfLua files follow=true no_ignore=true hidden=true<CR>",
+  { desc = "find all files with fzf-lua" }
 )
-map({ "n" }, "<leader>fds", "<cmd>Telescope lsp_document_symbols<CR>", { desc = "Document symbols" })
-map("n", "<leader>th", "<cmd>Telescope colorscheme<CR>", { desc = "change colorscheme with Telescope" })
+map("n", "<leader>fds", "<cmd>FzfLua lsp_document_symbols<CR>", { desc = "Document symbols with fzf-lua" })
+map("n", "<leader>th", "<cmd>FzfLua colorschemes<CR>", { desc = "change colorscheme with fzf-lua" })
 
 -- Comment
 map("n", "<leader>/", "gcc", { desc = "toggle comment", remap = true })

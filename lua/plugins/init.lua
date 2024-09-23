@@ -53,13 +53,10 @@ local plugins = {
   -- statusline
 
   {
-    "nvim-lualine/lualine.nvim",
-    dependencies = {
-      "nvim-tree/nvim-web-devicons",
+    "sschleemilch/slimline.nvim",
+    opts = {
+      style = "fg",
     },
-    config = function()
-      require "plugins.configs.lualine"
-    end,
   },
 
   -- we use cmp plugin only when in insert mode
@@ -177,6 +174,14 @@ local plugins = {
   },
 
   -- files finder etc
+  {
+    "ibhagwan/fzf-lua",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      require "plugins.configs.fzf"
+    end,
+  },
+
   {
     "nvim-telescope/telescope.nvim",
     cmd = "Telescope",
