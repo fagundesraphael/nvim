@@ -237,21 +237,7 @@ local plugins = {
   -- lsp spinner
   {
     "j-hui/fidget.nvim",
-    tag = "legacy",
-    event = "LspAttach",
-    opts = {
-      text = {
-        spinner = "pipe",
-        done = "✔",
-        commenced = "Started",
-        completed = "Completed",
-      },
-      timer = {
-        spinner_rate = 125,
-        fidget_decay = 2000,
-        task_decay = 1000,
-      },
-    },
+    opts = {},
   },
 
   -- word navigation
