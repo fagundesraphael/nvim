@@ -3,12 +3,13 @@ require("lint").linters_by_ft = {
   typescript = { "eslint" },
   javascriptreact = { "eslint" },
   typescriptreact = { "eslint" },
-  python = { "ruff" },
+  python = { "flake8" },
   django = { "djlint" },
   go = {
     "golangcilint",
   },
 }
+-- require("lint").linters.flake8.args = { "--ignore=E501" }
 
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {
   callback = function()

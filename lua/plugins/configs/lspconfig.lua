@@ -144,19 +144,26 @@ M.defaults = function()
     },
   }
 
-  lspconfig.pyright.setup {
+  lspconfig.basedpyright.setup {
     on_attach = M.on_attach,
     capabilities = M.capabilities,
     on_init = M.on_init,
     settings = {
-      pyright = { autoImportCompletions = true },
-      python = {
-        pythonPath = vim.fn.exepath "python3",
+      basedpyright = {
         analysis = {
           autoSearchPaths = true,
           diagnosticMode = "openFilesOnly",
           useLibraryCodeForTypes = true,
-          typeCheckingMode = "off",
+          typeCheckingMode = "standard",
+          autoImportCompletions = true,
+          reportUnusedImport = "information",
+          reportUnusedFunction = "information",
+          reportUnusedVariable = "information",
+          reportOptionalMemberAccess = "none",
+          reportOptionalSubscript = "warning",
+          reportPrivateImportUsage = "none",
+          reportUnusedParameter = "default",
+          reportAny = "default",
         },
       },
     },
