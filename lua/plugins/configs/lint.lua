@@ -1,10 +1,9 @@
 require("lint").linters_by_ft = {
-  javascript = { "eslint" },
-  typescript = { "eslint" },
-  javascriptreact = { "eslint" },
-  typescriptreact = { "eslint" },
+  javascript = { "eslint_d" },
+  typescript = { "eslint_d" },
+  javascriptreact = { "eslint_d" },
+  typescriptreact = { "eslint_d" },
   python = { "flake8" },
-  django = { "djlint" },
   go = {
     "golangcilint",
   },

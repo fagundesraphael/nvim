@@ -1,20 +1,18 @@
-local prettier = { "prettierd", "prettier" }
-
 local options = {
   formatters_by_ft = {
     lua = { "stylua" },
-    javascript = { prettier },
-    typescript = { prettier },
-    javascriptreact = { prettier },
-    typescriptreact = { prettier },
-    python = function(bufnr)
-      if require("conform").get_formatter_info("ruff_format", bufnr).available then
-        return { "ruff_format" }
-      else
-        return { "isort", "black", "autopep8" }
-      end
-    end,
-    -- python = { "black" },
+    javascript = { "prettierd" },
+    typescript = { "prettierd" },
+    javascriptreact = { "prettierd" },
+    typescriptreact = { "prettierd" },
+    -- python = function(bufnr)
+    --   if require("conform").get_formatter_info("ruff_format", bufnr).available then
+    --     return { "ruff_format" }
+    --   else
+    --     return { "isort", "black", "autopep8" }
+    --   end
+    -- end,
+    python = { "black" },
     django = { "djlint" },
     c = { "clang_format" },
     cpp = { "clang_format" },

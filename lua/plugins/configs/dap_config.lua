@@ -19,32 +19,6 @@ dap.listeners.before.event_exited["dapui_config"] = function()
   dapui.close()
 end
 
--- Rust
--- dap.adapters.codelldb = {
--- 	type = "server",
--- 	port = "${port}",
--- 	executable = {
--- 		command = "codelldb",
--- 		args = { "--port", "${port}" },
--- 	},
--- }
--- dap.configurations.rust = {
--- 	{
--- 		name = "Launch",
--- 		type = "codelldb",
--- 		request = "launch",
--- 		program = function()
--- 			return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/target/debug/", "file")
--- 		end,
--- 		cwd = "${workspaceFolder}",
--- 		stopOnEntry = false,
--- 		args = function()
--- 			local input = vim.fn.input("Args: ")
--- 			return vim.split(input, " ")
--- 		end,
--- 	},
--- }
-
 -- javascript / typescript
 dap.adapters["pwa-node"] = {
   type = "server",

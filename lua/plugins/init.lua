@@ -1,4 +1,4 @@
-local plugins = {
+return {
   {
     lazy = true,
     "nvim-lua/plenary.nvim",
@@ -16,6 +16,9 @@ local plugins = {
   {
     "nvim-tree/nvim-tree.lua",
     cmd = { "NvimTreeToggle", "NvimTreeFocus" },
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+    },
     opts = function()
       return require "plugins.configs.nvim-tree"
     end,
@@ -27,9 +30,7 @@ local plugins = {
   -- icons, for UI related plugins
   {
     "nvim-tree/nvim-web-devicons",
-    config = function()
-      require("nvim-web-devicons").setup()
-    end,
+    opts = {},
   },
 
   -- syntax highlighting
@@ -45,9 +46,7 @@ local plugins = {
   {
     "akinsho/bufferline.nvim",
     event = "ColorScheme",
-    config = function()
-      require("bufferline").setup()
-    end,
+    opts = require "plugins.configs.bufferline",
   },
 
   -- statusline
@@ -114,15 +113,9 @@ local plugins = {
 
   {
     "williamboman/mason.nvim",
-    opts = {
-      ui = {
-        icons = {
-          package_installed = "✓",
-          package_pending = "➜",
-          package_uninstalled = "✗",
-        },
-      },
-    },
+    build = ":MasonUpdate",
+    cmd = { "Mason", "MasonInstall" },
+    opts = {},
   },
 
   -- lsp
@@ -152,6 +145,7 @@ local plugins = {
       require "plugins.configs.lint"
     end,
   },
+
   -- indent lines
   {
     "lukas-reineke/indent-blankline.nvim",
@@ -442,27 +436,4 @@ local plugins = {
   --     adapters = { "pwa-node", "pwa-chrome" },
   --   },
   -- },
-
-  -- {
-  --   "zbirenbaum/copilot.lua",
-  --   cmd = "Copilot",
-  --   event = "InsertEnter",
-  --   dependencies = {
-  --     "zbirenbaum/copilot-cmp",
-  --   },
-  --   config = function()
-  --     require "plugins.configs.copilot"
-  --   end,
-  -- },
-
-  -- {
-  --   "ThePrimeagen/harpoon",
-  --   branch = "harpoon2",
-  --   dependencies = { "nvim-lua/plenary.nvim" },
-  --   config = function()
-  --     require "plugins.configs.harpoon"
-  --   end,
-  -- },
 }
-
-require("lazy").setup(plugins, require "lazy_config")

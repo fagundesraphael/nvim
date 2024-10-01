@@ -1,5 +1,3 @@
--- local harpoon = require "harpoon"
--- harpoon:setup()
 local map = vim.keymap.set
 
 -- path file
@@ -165,44 +163,3 @@ map("n", "<leader>rh", "<cmd> lua require('gitsigns').reset_hunk()<CR>")
 map("n", "<leader>ph", "<cmd> lua require('gitsigns').preview_hunk()<CR>")
 map("n", "<leader>gb", "<cmd> lua require('gitsigns').blame_line()<CR>")
 map("n", "<leader>td", "<cmd> lua require('gitsigns').toggle_deleted()<CR>")
-
--- harpoon mappings
-
--- map("n", "<S-m>", function()
---   harpoon:list():append()
---   vim.notify "󱡅  marked file"
--- end, { desc = "Mark file" })
---
--- -- open quick menu
---
--- map("n", "<C-S-H>", function()
---   harpoon:list():select(1)
--- end, { desc = "Select 1st" })
---
--- map("n", "<C-S-J>", function()
---   harpoon:list():select(2)
--- end, { desc = "Select 2nd" })
---
--- map("n", "<C-S-K>", function()
---   harpoon:list():select(3)
--- end, { desc = "Select 3rd" })
---
--- map("n", "<C-S-L>", function()
---   harpoon:list():select(4)
--- end, { desc = "Select 4th" })
---
--- -- Toggle previous & next buffers stored within Harpoon list
---
--- map("n", "<C-S-P>", function()
---   harpoon:list():prev()
--- end, { desc = "Previous buffer" })
---
--- map("n", "<C-S-N>", function()
---   harpoon:list():next()
--- end, { desc = "Next buffer" })
---
--- -- Quick menu mappings
--- map("n", "<C-S-M>", function()
---   local list = harpoon:list()
---   harpoon.ui:toggle_quick_menu(list)
--- end, { desc = "Toggle quick menu" })

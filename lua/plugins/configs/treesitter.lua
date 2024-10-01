@@ -29,6 +29,7 @@ require("nvim-treesitter.configs").setup {
     "java",
     "regex",
     "c_sharp",
+    "sql",
   },
 
   highlight = {

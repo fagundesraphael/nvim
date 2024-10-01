@@ -110,23 +110,6 @@ M.defaults = function()
     },
   }
 
-  -- lspconfig.gopls.setup({
-  -- 	on_attach = on_attach,
-  -- 	capabilities = capabilities,
-  -- 	cmd = { "gopls" },
-  -- 	filetypes = { "go", "gomod", "gowork", "gotmpl" },
-  -- 	root_dir = util.root_pattern("go.work", "go.mod", ".git"),
-  -- 	settings = {
-  -- 		gopls = {
-  -- 			completeUnimported = true,
-  -- 			usePlaceholders = true,
-  -- 			analyses = {
-  -- 				unusedparams = true,
-  -- 			},
-  -- 		},
-  -- 	},
-  -- })
-
   lspconfig.clangd.setup {
     on_attach = M.on_attach,
     on_init = M.on_init,
@@ -143,6 +126,23 @@ M.defaults = function()
       },
     },
   }
+
+  -- lspconfig.jedi_language_server.setup {
+  --   on_attach = M.on_attach,
+  --   capabilities = M.capabilities,
+  --   on_init = M.on_init,
+  --   settings = {
+  --     jedi = {
+  --       completion = {
+  --         disableSnippets = false,
+  --         fuzzy = true,
+  --       },
+  --       diagnostics = {
+  --         enable = true,
+  --       },
+  --     },
+  --   },
+  -- }
 
   lspconfig.basedpyright.setup {
     on_attach = M.on_attach,
@@ -176,11 +176,8 @@ M.defaults = function()
     "cssls",
     "html",
     "jsonls",
-    "lua_ls",
-    -- "jedi_language_server",
     "jdtls",
     "gopls",
-    -- "tsserver",
   }
 
   for _, lsp in ipairs(servers) do
