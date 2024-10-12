@@ -45,6 +45,8 @@ map("n", "<C-j>", "<cmd> TmuxNavigateDown<CR>")
 map("n", "<C-k>", "<cmd> TmuxNavigateUp<CR>")
 
 -- bufferline, cycle buffers
+map("n", "]b", "<cmd>bnext<CR>")
+map("n", "[b", "<cmd>bprev<CR>")
 map("n", "<Tab>", "<cmd> BufferLineCycleNext <CR>")
 map("n", "<S-Tab>", "<cmd> BufferLineCyclePrev <CR>")
 map("n", "<leader>b", "<cmd> enew <CR>")
