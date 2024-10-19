@@ -5,6 +5,10 @@ map("n", "<leader>pt", function()
   vim.cmd [[echo expand('%:p')]]
 end, { desc = "Show File Path" })
 
+-- exit insert mode with jk
+map("i", "jk", "<ESC>", { noremap = true, silent = true })
+map("i", "kj", "<ESC>", { noremap = true, silent = true })
+
 map("n", "<leader>P", '"_dP', { noremap = true, silent = true })
 -- Insert mode mappings
 map("i", "<C-b>", "<ESC>^i", { desc = "move to beginning of line" })
@@ -45,8 +49,8 @@ map("n", "<C-j>", "<cmd> TmuxNavigateDown<CR>")
 map("n", "<C-k>", "<cmd> TmuxNavigateUp<CR>")
 
 -- bufferline, cycle buffers
-map("n", "]b", "<cmd>bnext<CR>")
-map("n", "[b", "<cmd>bprev<CR>")
+-- map("n", "<Tab>", "<cmd>bnext<CR>")
+-- map("n", "<S-Tab>", "<cmd>bprev<CR>")
 map("n", "<Tab>", "<cmd> BufferLineCycleNext <CR>")
 map("n", "<S-Tab>", "<cmd> BufferLineCyclePrev <CR>")
 map("n", "<leader>b", "<cmd> enew <CR>")

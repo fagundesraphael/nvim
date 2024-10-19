@@ -261,8 +261,7 @@ return {
 
   {
     "folke/which-key.nvim",
-    keys = { "<leader>", '"', "'", "`" },
-    -- "c", "v", "g","<c-r>", },
+    keys = { "<leader>", "<c-w>", '"', "'", "`", "c", "v", "g" },
     cmd = "WhichKey",
     config = function(_, opts)
       require("which-key").setup(opts)
