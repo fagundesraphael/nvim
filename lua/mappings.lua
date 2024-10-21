@@ -18,6 +18,11 @@ map("i", "<C-l>", "<Right>", { desc = "move right" })
 map("i", "<C-j>", "<Down>", { desc = "move down" })
 map("i", "<C-k>", "<Up>", { desc = "move up" })
 
+--format
+map("n", "<leader>fm", function()
+  require("conform").format { lsp_fallback = true }
+end, { desc = "general format file" })
+
 -- move lines
 map("i", "<A-j>", "<Esc>:m .+1<CR>==gi", { desc = "Move line down" })
 map("i", "<A-k>", "<Esc>:m .-2<CR>==gi", { desc = "Move line up" })
@@ -49,10 +54,10 @@ map("n", "<C-j>", "<cmd> TmuxNavigateDown<CR>")
 map("n", "<C-k>", "<cmd> TmuxNavigateUp<CR>")
 
 -- bufferline, cycle buffers
--- map("n", "<Tab>", "<cmd>bnext<CR>")
--- map("n", "<S-Tab>", "<cmd>bprev<CR>")
-map("n", "<Tab>", "<cmd> BufferLineCycleNext <CR>")
-map("n", "<S-Tab>", "<cmd> BufferLineCyclePrev <CR>")
+map("n", "<Tab>", "<cmd>bnext<CR>")
+map("n", "<S-Tab>", "<cmd>bprev<CR>")
+-- map("n", "<Tab>", "<cmd> BufferLineCycleNext <CR>")
+-- map("n", "<S-Tab>", "<cmd> BufferLineCyclePrev <CR>")
 map("n", "<leader>b", "<cmd> enew <CR>")
 map("n", "<leader>x", "<cmd> bd <CR>")
 
@@ -69,25 +74,29 @@ map("n", "<leader>rn", "<cmd>set rnu!<CR>", { desc = "toggle relative numbers" }
 map("n", "<C-n>", "<cmd>NvimTreeToggle<CR>", { desc = "toggle nvimtree window" })
 map("n", "<leader>e", "<cmd>NvimTreeFocus<CR>", { desc = "focus nvimtree window" })
 
--- fzf-lua
-map("n", "<leader>fw", "<cmd>FzfLua live_grep<CR>", { desc = "search live with fzf-lua" })
-map("n", "<leader>fb", "<cmd>FzfLua buffers<CR>", { desc = "find buffers with fzf-lua" })
-map("n", "<leader>fh", "<cmd>FzfLua help_tags<CR>", { desc = "search help tags with fzf-lua" })
-map("n", "<leader>ma", "<cmd>FzfLua marks<CR>", { desc = "find marks with fzf-lua" })
-map("n", "<leader>fo", "<cmd>FzfLua oldfiles<CR>", { desc = "find old files with fzf-lua" })
-map("n", "<leader>fz", "<cmd>FzfLua lgrep_curbuf<CR>", { desc = "find in current buffer with fzf-lua" })
-map("n", "<leader>cm", "<cmd>FzfLua git_commits<CR>", { desc = "browse git commits with fzf-lua" })
-map("n", "<leader>gt", "<cmd>FzfLua git_status<CR>", { desc = "git status with fzf-lua" })
-map("n", "<leader>ff", "<cmd>FzfLua files<CR>", { desc = "find files with fzf-lua" })
-map("n", "<leader>fc", "<cmd>FzfLua command_history<CR>", { desc = "find in current buffer with fzf-lua" })
+-- telescope maps 
+map("n", "<leader>fw", "<cmd>Telescope live_grep<CR>", { desc = "search live with Telescope" })
+map("n", "<leader>fb", "<cmd>Telescope buffers<CR>", { desc = "find buffers with Telescope" })
+map("n", "<leader>fh", "<cmd>Telescope help_tags<CR>", { desc = "search help tags with Telescope" })
+map("n", "<leader>ma", "<cmd>Telescope marks<CR>", { desc = "find marks with Telescope" })
+map("n", "<leader>fo", "<cmd>Telescope oldfiles<CR>", { desc = "find old files with Telescope" })
+map(
+  "n",
+  "<leader>fz",
+  "<cmd>Telescope current_buffer_fuzzy_find<CR>",
+  { desc = "find in current buffer with Telescope" }
+)
+map("n", "<leader>cm", "<cmd>Telescope git_commits<CR>", { desc = "browse git commits with Telescope" })
+map("n", "<leader>gt", "<cmd>Telescope git_status<CR>", { desc = "git status with Telescope" })
+map("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "find files with Telescope" })
 map(
   "n",
   "<leader>fa",
-  "<cmd>FzfLua files follow=true no_ignore=true hidden=true<CR>",
-  { desc = "find all files with fzf-lua" }
+  "<cmd>Telescope find_files follow=true no_ignore=true hidden=true<CR>",
+  { desc = "find all files with Telescope" }
 )
-map("n", "<leader>fds", "<cmd>FzfLua lsp_document_symbols<CR>", { desc = "Document symbols with fzf-lua" })
-map("n", "<leader>th", "<cmd>FzfLua colorschemes<CR>", { desc = "change colorscheme with fzf-lua" })
+map({ "n" }, "<leader>fds", "<cmd>Telescope lsp_document_symbols<CR>", { desc = "Document symbols" })
+map("n", "<leader>th", "<cmd>Telescope colorscheme<CR>", { desc = "change colorscheme with Telescope" })
 
 -- Comment
 map("n", "<leader>/", "gcc", { desc = "toggle comment", remap = true })

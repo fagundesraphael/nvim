@@ -43,11 +43,11 @@ return {
   },
 
   -- buffer + tab line
-  {
-    "akinsho/bufferline.nvim",
-    event = "ColorScheme",
-    opts = require "plugins.configs.bufferline",
-  },
+  -- {
+  --   "akinsho/bufferline.nvim",
+  --   event = "ColorScheme",
+  --   opts = require "plugins.configs.bufferline",
+  -- },
 
   -- statusline
 
@@ -132,6 +132,9 @@ return {
   {
     "stevearc/conform.nvim",
     event = { "BufWritePre" },
+    opts = {
+      formatters_by_ft = { lua = { "stylua" } },
+    },
     lazy = true,
     config = function()
       require "plugins.configs.conform"
@@ -168,13 +171,6 @@ return {
   },
 
   -- files finder etc
-  {
-    "ibhagwan/fzf-lua",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    config = function()
-      require "plugins.configs.fzf"
-    end,
-  },
 
   {
     "nvim-telescope/telescope.nvim",
