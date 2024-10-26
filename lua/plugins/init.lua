@@ -131,7 +131,7 @@ return {
   -- formatting , linting
   {
     "stevearc/conform.nvim",
-    event = { "BufWritePre" },
+    -- event = { "BufWritePre" },
     lazy = true,
     config = function()
       require "plugins.configs.conform"
