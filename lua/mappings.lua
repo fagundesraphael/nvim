@@ -85,12 +85,6 @@ map("n", "<leader>cm", "<cmd>FzfLua git_commits<CR>", { desc = "browse git commi
 map("n", "<leader>gt", "<cmd>FzfLua git_status<CR>", { desc = "git status with fzf-lua" })
 map("n", "<leader>ff", "<cmd>FzfLua files<CR>", { desc = "find files with fzf-lua" })
 map("n", "<leader>fc", "<cmd>FzfLua command_history<CR>", { desc = "find in current buffer with fzf-lua" })
-map(
-  "n",
-  "<leader>fa",
-  "<cmd>FzfLua files follow=true no_ignore=true hidden=true<CR>",
-  { desc = "find all files with fzf-lua" }
-)
 map("n", "<leader>fds", "<cmd>FzfLua lsp_document_symbols<CR>", { desc = "Document symbols with fzf-lua" })
 map("n", "<leader>th", "<cmd>FzfLua colorschemes<CR>", { desc = "change colorscheme with fzf-lua" })
 

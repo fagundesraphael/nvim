@@ -43,11 +43,11 @@ return {
   },
 
   -- buffer + tab line
-  {
-    "akinsho/bufferline.nvim",
-    event = "ColorScheme",
-    opts = require "plugins.configs.bufferline",
-  },
+  -- {
+  --   "akinsho/bufferline.nvim",
+  --   event = "ColorScheme",
+  --   opts = require "plugins.configs.bufferline",
+  -- },
 
   -- statusline
 
@@ -173,14 +173,6 @@ return {
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
       require "plugins.configs.fzf"
-    end,
-  },
-
-  {
-    "nvim-telescope/telescope.nvim",
-    cmd = "Telescope",
-    config = function()
-      require "plugins.configs.telescope"
     end,
   },
 

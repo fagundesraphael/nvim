@@ -4,19 +4,12 @@ fzf.setup {
   winopts = {
     height = 0.85,
     width = 0.87,
-    preview = {
-      default = "bat",
-      hidden = "nohidden",
-    },
-    border = true,
-    borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
-  },
-  fzf_colors = {
-    ["fg+"] = { "fg", "Comment" },
-    ["bg+"] = { "bg", "Normal" },
-    ["gutter"] = { "bg", "Normal" },
   },
   keymap = {
+    builtin = {
+      ["<C-u>"] = "preview-page-up",
+      ["<C-d>"] = "preview-page-down",
+    },
     fzf = {
       ["ctrl-q"] = "abort",
       ["ctrl-u"] = "preview-half-page-up",
@@ -26,11 +19,6 @@ fzf.setup {
   fzf_opts = {
     ["--layout"] = "default",
     ["--info"] = "default",
-  },
-  cmd = {
-    files = { "rg --files --hidden --follow --glob '!{.git,node_modules}/*'" },
-    grep = { "rg" },
-    live_grep = { "rg --hidden --follow" },
   },
 }
 

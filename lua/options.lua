@@ -18,6 +18,7 @@ vim.opt.fillchars = { eob = " " }
 o.ignorecase = true
 o.smartcase = true
 o.mouse = "a"
+o.showtabline = 0
 
 -- Numbers
 o.number = true
