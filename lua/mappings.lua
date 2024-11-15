@@ -168,3 +168,22 @@ map("n", "<leader>rh", "<cmd> lua require('gitsigns').reset_hunk()<CR>")
 map("n", "<leader>ph", "<cmd> lua require('gitsigns').preview_hunk()<CR>")
 map("n", "<leader>gb", "<cmd> lua require('gitsigns').blame_line()<CR>")
 map("n", "<leader>td", "<cmd> lua require('gitsigns').toggle_deleted()<CR>")
+
+-- Java JPA mappings
+map("n", "<leader>jpce", "<cmd>CreateNewJPAEntity<CR>", { desc = "Create New JPA Entity" })
+map("n", "<leader>jpcr", "<cmd>CreateJPARepository<CR>", { desc = "Create JPA Repository" })
+map("n", "<leader>jpcfi", "<cmd>CreateEntityField id<CR>", { desc = "Create Entity Field - id" })
+map("n", "<leader>jpcfb", "<cmd>CreateEntityField basic<CR>", { desc = "Create Entity Field - basic" })
+map("n", "<leader>jpcfe", "<cmd>CreateEntityField enum<CR>", { desc = "Create Entity Field - enum" })
+map(
+  "n",
+  "<leader>jpcro",
+  "<cmd>CreateEntityRelationship one-to-one<CR>",
+  { desc = "Create Entity Relationship - One to One" }
+)
+map(
+  "n",
+  "<leader>jpcrm",
+  "<cmd>CreateEntityRelationship many-to-one<CR>",
+  { desc = "Create Entity Relationship - Many to One" }
+)

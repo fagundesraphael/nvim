@@ -17,6 +17,7 @@ local options = {
     c = { "clang_format" },
     cpp = { "clang_format" },
     go = { "gofumpt", "gofmt", "golines" },
+    yaml = { "yamlfmt" },
   },
 }
 

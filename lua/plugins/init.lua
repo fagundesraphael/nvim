@@ -374,6 +374,34 @@ return {
   },
 
   {
+    "javiorfo/nvim-springtime",
+    lazy = true,
+    cmd = { "Springtime", "SpringtimeUpdate" },
+    dependencies = {
+      "javiorfo/nvim-popcorn",
+      "javiorfo/nvim-spinetta",
+      "hrsh7th/nvim-cmp",
+    },
+    build = function()
+      require("springtime.core").update()
+    end,
+    opts = {
+
+      dialog = {
+        confirmation = false,
+      },
+    },
+  },
+
+  {
+    "andreluisos/nvim-javagenie",
+    dependencies = {
+      "grapp-dev/nui-components.nvim",
+      "MunifTanjim/nui.nvim",
+    },
+  },
+
+  {
     "RRethy/vim-illuminate",
     event = { "CursorHold", "CursorHoldI" },
     dependencies = "nvim-treesitter",
@@ -405,6 +433,15 @@ return {
         },
       }
     end,
+  },
+
+  {
+    "OXY2DEV/markview.nvim",
+    lazy = false,
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-tree/nvim-web-devicons",
+    },
   },
 
   -- {

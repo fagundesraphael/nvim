@@ -178,6 +178,7 @@ M.defaults = function()
     "jsonls",
     "jdtls",
     "gopls",
+    "yamlls",
   }
 
   for _, lsp in ipairs(servers) do
