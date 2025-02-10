@@ -53,13 +53,7 @@ map("n", "<C-l>", "<cmd> TmuxNavigateRight<CR>")
 map("n", "<C-j>", "<cmd> TmuxNavigateDown<CR>")
 map("n", "<C-k>", "<cmd> TmuxNavigateUp<CR>")
 
--- bufferline, cycle buffers
-map("n", "<Tab>", "<cmd>bnext<CR>")
-map("n", "<S-Tab>", "<cmd>bprev<CR>")
--- map("n", "<Tab>", "<cmd> BufferLineCycleNext <CR>")
--- map("n", "<S-Tab>", "<cmd> BufferLineCyclePrev <CR>")
-map("n", "<leader>b", "<cmd> enew <CR>")
-map("n", "<leader>x", "<cmd> bp | sp | bn | bd <CR>")
+-- window navigation
 map("n", "<C-h>", "<C-w>h", { desc = "switch to left window" })
 map("n", "<C-l>", "<C-w>l", { desc = "switch to right window" })
 map("n", "<C-j>", "<C-w>j", { desc = "switch to bottom window" })
@@ -186,3 +180,36 @@ map(
   "<cmd>CreateEntityRelationship many-to-one<CR>",
   { desc = "Create Entity Relationship - Many to One" }
 )
+
+-- bufferline, cycle buffers
+map("n", "<Tab>", "<cmd>bnext<CR>")
+map("n", "<S-Tab>", "<cmd>bprev<CR>")
+-- map("n", "<Tab>", "<cmd> BufferLineCycleNext <CR>")
+-- map("n", "<S-Tab>", "<cmd> BufferLineCyclePrev <CR>")
+map("n", "<leader>b", "<cmd> enew <CR>")
+-- map("n", "<leader>x", "<cmd> bp | sp | bn | bd <CR>")
+map("n", "<leader>x", function()
+  local current_buf = vim.api.nvim_get_current_buf()
+  local buf_list = vim.api.nvim_list_bufs()
+
+  local valid_bufs = vim.tbl_filter(function(buf)
+    return vim.api.nvim_buf_is_valid(buf) and vim.bo[buf].buflisted and buf ~= current_buf
+  end, buf_list)
+
+  if vim.bo.modified then
+    local choice = vim.fn.confirm("Buffer não salvo. Deseja salvar?", "&Sim\n&Não\n&Cancelar", 3)
+    if choice == 1 then
+      vim.cmd "write"
+    elseif choice == 3 then
+      return
+    end
+  end
+
+  local next_buf = valid_bufs[1] or 0
+
+  vim.cmd("bdelete! " .. current_buf)
+
+  if next_buf ~= 0 then
+    vim.api.nvim_set_current_buf(next_buf)
+  end
+end, { noremap = true, silent = true })
