@@ -4,6 +4,7 @@ vim.g.mapleader = " "
 
 o.laststatus = 3 -- global statusline
 o.showmode = false
+o.showcmd = false
 
 o.clipboard = "unnamedplus"
 

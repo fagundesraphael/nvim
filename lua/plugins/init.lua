@@ -52,10 +52,13 @@ return {
   -- statusline
 
   {
-    "sschleemilch/slimline.nvim",
-    opts = {
-      style = "fg",
+    "nvim-lualine/lualine.nvim",
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
     },
+    config = function()
+      require "plugins.configs.lualine"
+    end,
   },
 
   -- we use cmp plugin only when in insert mode

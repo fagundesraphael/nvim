@@ -189,13 +189,6 @@ map("n", "<S-Tab>", "<cmd>bprev<CR>")
 map("n", "<leader>b", "<cmd> enew <CR>")
 -- map("n", "<leader>x", "<cmd> bp | sp | bn | bd <CR>")
 map("n", "<leader>x", function()
-  local current_buf = vim.api.nvim_get_current_buf()
-  local buf_list = vim.api.nvim_list_bufs()
-
-  local valid_bufs = vim.tbl_filter(function(buf)
-    return vim.api.nvim_buf_is_valid(buf) and vim.bo[buf].buflisted and buf ~= current_buf
-  end, buf_list)
-
   if vim.bo.modified then
     local choice = vim.fn.confirm("Buffer não salvo. Deseja salvar?", "&Sim\n&Não\n&Cancelar", 3)
     if choice == 1 then
@@ -205,11 +198,7 @@ map("n", "<leader>x", function()
     end
   end
 
-  local next_buf = valid_bufs[1] or 0
-
-  vim.cmd("bdelete! " .. current_buf)
-
-  if next_buf ~= 0 then
-    vim.api.nvim_set_current_buf(next_buf)
-  end
+  local current = vim.api.nvim_get_current_buf()
+  vim.cmd "bnext"
+  vim.cmd("bdelete " .. current)
 end, { noremap = true, silent = true })
