@@ -68,12 +68,12 @@ map("n", "<C-n>", "<cmd>NvimTreeToggle<CR>", { desc = "toggle nvimtree window" }
 map("n", "<leader>e", "<cmd>NvimTreeFocus<CR>", { desc = "focus nvimtree window" })
 
 -- fzf-lua
-map("n", "<leader>fw", "<cmd>FzfLua live_grep<CR>", { desc = "search live with fzf-lua" })
+map("n", "<leader>fw", "<cmd>FzfLua live_grep --fixed-strings<CR>", { desc = "search live with fzf-lua" })
 map("n", "<leader>fb", "<cmd>FzfLua buffers<CR>", { desc = "find buffers with fzf-lua" })
 map("n", "<leader>fh", "<cmd>FzfLua help_tags<CR>", { desc = "search help tags with fzf-lua" })
 map("n", "<leader>ma", "<cmd>FzfLua marks<CR>", { desc = "find marks with fzf-lua" })
 map("n", "<leader>fo", "<cmd>FzfLua oldfiles<CR>", { desc = "find old files with fzf-lua" })
-map("n", "<leader>fz", "<cmd>FzfLua lgrep_curbuf<CR>", { desc = "find in current buffer with fzf-lua" })
+map("n", "<leader>fz", "<cmd>FzfLua blines --fixed-strings<CR>", { desc = "find in current buffer with fzf-lua" })
 map("n", "<leader>cm", "<cmd>FzfLua git_commits<CR>", { desc = "browse git commits with fzf-lua" })
 map("n", "<leader>gt", "<cmd>FzfLua git_status<CR>", { desc = "git status with fzf-lua" })
 map("n", "<leader>ff", "<cmd>FzfLua files<CR>", { desc = "find files with fzf-lua" })

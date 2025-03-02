@@ -8,7 +8,6 @@ require("lint").linters_by_ft = {
     "golangcilint",
   },
 }
-require("lint").linters.flake8.args = { "--ignore=E501" }
 
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {
   callback = function()

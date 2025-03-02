@@ -21,7 +21,8 @@ local config = {
     component_separators = "",
     section_separators = "",
     -- theme = "rose-pine-alt",
-    theme = "rose-pine",
+    -- theme = "rose-pine",
+    theme = "auto",
   },
   sections = {
     lualine_a = {},

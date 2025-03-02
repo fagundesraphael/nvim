@@ -1,9 +1,13 @@
 local fzf = require "fzf-lua"
-
 fzf.setup {
   winopts = {
-    height = 0.85,
-    width = 0.87,
+    preview = {
+      layout = "vertical",
+    },
+  },
+  files = {
+    respect_gitignore = true,
+    hidden = false,
   },
   keymap = {
     builtin = {
@@ -20,6 +24,12 @@ fzf.setup {
     ["--layout"] = "default",
     ["--info"] = "default",
   },
+  actions = {
+    files = {
+      ["default"] = fzf.actions.file_edit,
+      ["ctrl-g"] = fzf.actions.toggle_ignore,
+      ["ctrl-h"] = fzf.actions.toggle_hidden,
+    },
+  },
 }
-
 return fzf
