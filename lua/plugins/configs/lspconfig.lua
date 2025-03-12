@@ -127,47 +127,47 @@ M.defaults = function()
     },
   }
 
-  lspconfig.jedi_language_server.setup {
-    on_attach = M.on_attach,
-    capabilities = M.capabilities,
-    on_init = M.on_init,
-    settings = {
-      jedi = {
-        completion = {
-          disableSnippets = false,
-          fuzzy = true,
-        },
-        diagnostics = {
-          enable = true,
-        },
-      },
-    },
-  }
-
-  -- lspconfig.basedpyright.setup {
+  -- lspconfig.jedi_language_server.setup {
   --   on_attach = M.on_attach,
   --   capabilities = M.capabilities,
   --   on_init = M.on_init,
   --   settings = {
-  --     basedpyright = {
-  --       analysis = {
-  --         autoSearchPaths = true,
-  --         diagnosticMode = "openFilesOnly",
-  --         useLibraryCodeForTypes = true,
-  --         typeCheckingMode = "standard",
-  --         autoImportCompletions = true,
-  --         reportUnusedImport = "information",
-  --         reportUnusedFunction = "information",
-  --         reportUnusedVariable = "information",
-  --         reportOptionalMemberAccess = "none",
-  --         reportOptionalSubscript = "warning",
-  --         reportPrivateImportUsage = "none",
-  --         reportUnusedParameter = "default",
-  --         reportAny = "default",
+  --     jedi = {
+  --       completion = {
+  --         disableSnippets = false,
+  --         fuzzy = true,
+  --       },
+  --       diagnostics = {
+  --         enable = true,
   --       },
   --     },
   --   },
   -- }
+
+  lspconfig.basedpyright.setup {
+    on_attach = M.on_attach,
+    capabilities = M.capabilities,
+    on_init = M.on_init,
+    settings = {
+      basedpyright = {
+        analysis = {
+          autoSearchPaths = true,
+          diagnosticMode = "openFilesOnly",
+          useLibraryCodeForTypes = true,
+          typeCheckingMode = "standard",
+          autoImportCompletions = true,
+          reportUnusedImport = "information",
+          reportUnusedFunction = "information",
+          reportUnusedVariable = "information",
+          reportOptionalMemberAccess = "none",
+          reportOptionalSubscript = "warning",
+          reportPrivateImportUsage = "none",
+          reportUnusedParameter = "default",
+          reportAny = "default",
+        },
+      },
+    },
+  }
 
   -- setup multiple servers with same default options
   require("java").setup {}
@@ -179,6 +179,7 @@ M.defaults = function()
     "jdtls",
     "gopls",
     "yamlls",
+    "lemminx",
   }
 
   for _, lsp in ipairs(servers) do
