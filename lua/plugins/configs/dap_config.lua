@@ -30,23 +30,28 @@ dap.adapters["pwa-node"] = {
 }
 
 -- c/c++
-dap.adapters.c = {
-  type = "executable",
-  command = "lldb-vscode",
-  name = "lldb",
+dap.adapters.codelldb = {
+  type = "server",
+  port = "${port}",
+  executable = {
+    command = os.getenv "HOME" .. "/.local/share/codelldb/adapter/codelldb",
+    args = { "--port", "${port}" },
+  },
 }
 
 dap.configurations.c = {
   {
-    type = "c",
-    request = "launch",
     name = "Launch",
+    type = "codelldb",
+    request = "launch",
     program = function()
       return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
     end,
     cwd = "${workspaceFolder}",
     stopOnEntry = false,
     args = {},
+    console = "integratedTerminal",
+    terminal = "integrated",
   },
 }
 

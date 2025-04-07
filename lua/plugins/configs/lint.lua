@@ -3,7 +3,7 @@ require("lint").linters_by_ft = {
   typescript = { "eslint_d" },
   javascriptreact = { "eslint_d" },
   typescriptreact = { "eslint_d" },
-  python = { "flake8" },
+  -- python = { "flake8" },
   go = {
     "golangcilint",
   },

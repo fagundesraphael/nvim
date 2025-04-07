@@ -10,9 +10,18 @@ map("n", "<leader>fm", function()
   require("conform").format { lsp_fallback = true }
 end, { desc = "general format file" })
 
+-- Alias for quit commands
+map("c", "Qa", "qa", { noremap = true, silent = true })
+map("c", "QA", "qa", { noremap = true, silent = true })
+map("c", "qA", "qa", { noremap = true, silent = true })
+map("c", "Q", "q", { noremap = true, silent = true })
+
 -- exit insert mode with jk
 map("i", "jk", "<ESC>", { noremap = true, silent = true })
 map("i", "kj", "<ESC>", { noremap = true, silent = true })
+
+-- Duplicate a line and comment out the first line
+map("n", "yc", "yy:normal gcc<CR>p", { desc = "Duplicate line and comment original" })
 
 map("n", "<leader>P", '"_dP', { noremap = true, silent = true })
 -- Insert mode mappings
@@ -59,13 +68,14 @@ map("n", "<C-l>", "<C-w>l", { desc = "switch to right window" })
 map("n", "<C-j>", "<C-w>j", { desc = "switch to bottom window" })
 map("n", "<C-k>", "<C-w>k", { desc = "switch to top window" })
 
-map("n", "<C-s>", "<cmd>w<CR>", { desc = "save file" })
+map("n", "<CR>", "<cmd>:w<CR>", { desc = "save file" })
+map("n", "<C-c>", "<cmd>%y+<CR>", { desc = "general copy whole file" })
 
 map("n", "<leader>n", "<cmd>set nu!<CR>", { desc = "toggle line numbers" })
 map("n", "<leader>rn", "<cmd>set rnu!<CR>", { desc = "toggle relative numbers" })
 
 map("n", "<C-n>", "<cmd>NvimTreeToggle<CR>", { desc = "toggle nvimtree window" })
-map("n", "<leader>e", "<cmd>NvimTreeFocus<CR>", { desc = "focus nvimtree window" })
+-- map("n", "<leader>e", "<cmd>NvimTreeFocus<CR>", { desc = "focus nvimtree window" })
 
 -- fzf-lua
 map("n", "<leader>fw", "<cmd>FzfLua live_grep --fixed-strings<CR>", { desc = "search live with fzf-lua" })
@@ -162,32 +172,10 @@ map("n", "<leader>ph", "<cmd> lua require('gitsigns').preview_hunk()<CR>")
 map("n", "<leader>gb", "<cmd> lua require('gitsigns').blame_line()<CR>")
 map("n", "<leader>td", "<cmd> lua require('gitsigns').toggle_deleted()<CR>")
 
--- Java JPA mappings
-map("n", "<leader>jpce", "<cmd>CreateNewJPAEntity<CR>", { desc = "Create New JPA Entity" })
-map("n", "<leader>jpcr", "<cmd>CreateJPARepository<CR>", { desc = "Create JPA Repository" })
-map("n", "<leader>jpcfi", "<cmd>CreateEntityField id<CR>", { desc = "Create Entity Field - id" })
-map("n", "<leader>jpcfb", "<cmd>CreateEntityField basic<CR>", { desc = "Create Entity Field - basic" })
-map("n", "<leader>jpcfe", "<cmd>CreateEntityField enum<CR>", { desc = "Create Entity Field - enum" })
-map(
-  "n",
-  "<leader>jpcro",
-  "<cmd>CreateEntityRelationship one-to-one<CR>",
-  { desc = "Create Entity Relationship - One to One" }
-)
-map(
-  "n",
-  "<leader>jpcrm",
-  "<cmd>CreateEntityRelationship many-to-one<CR>",
-  { desc = "Create Entity Relationship - Many to One" }
-)
-
 -- bufferline, cycle buffers
-map("n", "<Tab>", "<cmd>bnext<CR>")
-map("n", "<S-Tab>", "<cmd>bprev<CR>")
--- map("n", "<Tab>", "<cmd> BufferLineCycleNext <CR>")
--- map("n", "<S-Tab>", "<cmd> BufferLineCyclePrev <CR>")
+map("n", "<Tab>", "<cmd> BufferLineCycleNext <CR>")
+map("n", "<S-Tab>", "<cmd> BufferLineCyclePrev <CR>")
 map("n", "<leader>b", "<cmd> enew <CR>")
--- map("n", "<leader>x", "<cmd> bp | sp | bn | bd <CR>")
 map("n", "<leader>x", function()
   if vim.bo.modified then
     local choice = vim.fn.confirm("Buffer não salvo. Deseja salvar?", "&Sim\n&Não\n&Cancelar", 3)

@@ -1,8 +1,8 @@
 local o = vim.o
 
-vim.g.mapleader = " "
+-- vim.g.mapleader = ";"
 
-o.laststatus = 3 -- global statusline
+o.laststatus = 3
 o.showmode = false
 o.showcmd = false
 
@@ -37,9 +37,25 @@ o.foldlevel = 99
 o.foldlevelstart = 99
 o.foldmethod = "expr"
 o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.o.foldtext = ""
+vim.opt.foldcolumn = "0"
+vim.opt.fillchars:append { fold = " " }
 
 -- add binaries installed by mason.nvim to path
 local is_windows = vim.loop.os_uname().sysname == "Windows_NT"
 vim.env.PATH = vim.env.PATH .. (is_windows and ";" or ":") .. vim.fn.stdpath "data" .. "/mason/bin"
 
 vim.api.nvim_set_hl(0, "IndentLine", { link = "Comment" })
+
+--  virtual_text
+vim.diagnostic.config {
+  virtual_text = {
+    severity = {
+      min = vim.diagnostic.severity.HINT,
+      max = vim.diagnostic.severity.ERROR,
+    },
+  },
+  virtual_lines = false,
+}
+
+return {}

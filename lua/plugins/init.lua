@@ -36,18 +36,18 @@ return {
   -- syntax highlighting
   {
     "nvim-treesitter/nvim-treesitter",
-    build = ":TSUpdate",
+    run = ":TSUpdate",
     config = function()
       require "plugins.configs.treesitter"
     end,
   },
 
   -- buffer + tab line
-  -- {
-  --   "akinsho/bufferline.nvim",
-  --   event = "ColorScheme",
-  --   opts = require "plugins.configs.bufferline",
-  -- },
+  {
+    "akinsho/bufferline.nvim",
+    event = "ColorScheme",
+    opts = require "plugins.configs.bufferline",
+  },
 
   -- statusline
 
@@ -121,20 +121,9 @@ return {
     opts = {},
   },
 
-  -- lsp
-
-  {
-    "neovim/nvim-lspconfig",
-    event = "User FilePost",
-    config = function()
-      require("plugins.configs.lspconfig").defaults()
-    end,
-  },
-
   -- formatting , linting
   {
     "stevearc/conform.nvim",
-    -- event = { "BufWritePre" },
     lazy = true,
     config = function()
       require "plugins.configs.conform"
@@ -177,10 +166,6 @@ return {
     config = function()
       require "plugins.configs.fzf"
     end,
-  },
-
-  {
-    "nvim-telescope/telescope-ui-select.nvim",
   },
 
   -- git status on signcolumn etc
@@ -231,19 +216,19 @@ return {
 
   -- word navigation
   {
+    "kevinhwang91/nvim-bqf",
+    config = function()
+      require("bqf").setup()
+    end,
+  },
+
+  {
     "jinh0/eyeliner.nvim",
     event = "VeryLazy",
     config = function()
       require("eyeliner").setup {
         highlight_on_key = true,
       }
-    end,
-  },
-
-  {
-    "kevinhwang91/nvim-bqf",
-    config = function()
-      require("bqf").setup()
     end,
   },
 
@@ -271,7 +256,6 @@ return {
 
   {
     "mfussenegger/nvim-dap",
-    after = "catppuccin",
     config = function(_, opts)
       require("dapui").setup(opts)
     end,
@@ -324,14 +308,12 @@ return {
     "nvim-neotest/nvim-nio",
   },
   -- Rust
-  {
-    "mrcjkb/rustaceanvim",
-    ft = { "rust" },
-    dependencies = "neovim/nvim-lspconfig",
-    config = function()
-      require "plugins.configs.rustaceanvim"
-    end,
-  },
+  -- {
+  --   'mrcjkb/rustaceanvim',
+  --   version = '^5',
+  --   lazy = false,
+  -- },
+
   {
     "saecki/crates.nvim",
     ft = { "toml" },
@@ -344,63 +326,13 @@ return {
       crates.show()
     end,
   },
-  {
-    "rust-lang/rust.vim",
-    ft = "rust",
-    init = function()
-      vim.g.rustfmt_autosave = 1
-    end,
-  },
 
   -- Java
   {
-    "nvim-java/nvim-java",
+    "mfussenegger/nvim-jdtls",
+    ft = "java",
     dependencies = {
-      "nvim-java/lua-async-await",
-      "nvim-java/nvim-java-refactor",
-      "nvim-java/nvim-java-core",
-      "nvim-java/nvim-java-test",
-      "nvim-java/nvim-java-dap",
-      "MunifTanjim/nui.nvim",
-      "neovim/nvim-lspconfig",
       "mfussenegger/nvim-dap",
-      {
-        "williamboman/mason.nvim",
-        opts = {
-          registries = {
-            "github:nvim-java/mason-registry",
-            "github:mason-org/mason-registry",
-          },
-        },
-      },
-    },
-  },
-
-  {
-    "javiorfo/nvim-springtime",
-    lazy = true,
-    cmd = { "Springtime", "SpringtimeUpdate" },
-    dependencies = {
-      "javiorfo/nvim-popcorn",
-      "javiorfo/nvim-spinetta",
-      "hrsh7th/nvim-cmp",
-    },
-    build = function()
-      require("springtime.core").update()
-    end,
-    opts = {
-
-      dialog = {
-        confirmation = false,
-      },
-    },
-  },
-
-  {
-    "andreluisos/nvim-javagenie",
-    dependencies = {
-      "grapp-dev/nui-components.nvim",
-      "MunifTanjim/nui.nvim",
     },
   },
 
@@ -446,25 +378,4 @@ return {
       "nvim-tree/nvim-web-devicons",
     },
   },
-
-  -- {
-  --   "m4xshen/hardtime.nvim",
-  --   dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
-  --   opts = {},
-  --   init = function()
-  --     require("hardtime").setup()
-  --   end,
-  -- },
-
-  -- {
-  --   "microsoft/vscode-js-debug",
-  --   build = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out",
-  -- },
-  -- {
-  --   "mxsdev/nvim-dap-vscode-js",
-  --   opts = {
-  --     debugger_path = vim.fn.stdpath "data" .. "/lazy/vscode-js-debug",
-  --     adapters = { "pwa-node", "pwa-chrome" },
-  --   },
-  -- },
 }

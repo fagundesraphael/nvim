@@ -13,12 +13,11 @@ local options = {
     --   end
     -- end,
     python = { "black" },
-    django = { "djlint" },
     c = { "clang_format" },
     cpp = { "clang_format" },
     go = { "gofumpt", "gofmt", "golines" },
     yaml = { "yamlfmt" },
-    xml = {"xmlformatter"},
+    xml = { "xmlformatter" },
   },
 }
 
