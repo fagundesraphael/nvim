@@ -55,6 +55,22 @@ dap.configurations.c = {
   },
 }
 
+dap.configurations.rust = {
+  {
+    name = "Launch",
+    type = "codelldb",
+    request = "launch",
+    program = function()
+      vim.fn.system("cargo build")
+      local binary_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
+      return vim.fn.getcwd() .. "/target/debug/" .. binary_name
+    end,
+    cwd = "${workspaceFolder}",
+    stopOnEntry = false,
+    args = {},
+  },
+}
+
 for _, language in ipairs { "typescript", "javascript" } do
   dap.configurations[language] = {
     {
